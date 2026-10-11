@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guillermo Simones | CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Space+Mono&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --fondo: #eeedeb;
+      --tarjeta: #d9d7d4;
+      --texto: #1b1b1f;
+      --suave: #9a9894;
+      --acento: #0a7fc7;
+      --fuente: "Rubik", "Segoe UI", system-ui, sans-serif;
+      --mono: "Space Mono", ui-monospace, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: var(--fuente);
+      line-height: 1.5;
+    }
+
+    .pagina {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    a {
+      color: var(--acento);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--acento);
+      outline-offset: 2px;
+    }
+
+
+    .cabecera {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 56px;
+    }
+
+    .foto {
+      flex: none;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+
+      overflow: hidden;
+
+      border: 4px solid #0a7fc7;
+
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }
+
+    .chip-nombre {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 2px 10px;
+      border-radius: 4px;
+    }
+
+    .cabecera h1 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 6px 0 2px;
+    }
+
+    .cabecera h2 {
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--acento);
+    }
+
+    .cabecera p {
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    .titulo {
+      font-family: var(--mono);
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .titulo::before {
+      content: "<";
+      color: var(--suave);
+    }
+
+    .titulo::after {
+      content: ">";
+      color: var(--suave);
+    }
+
+    .cierre {
+      text-align: right;
+      font-family: var(--mono);
+      color: var(--suave);
+      margin-top: 16px;
+    }
+
+    .datos {
+      margin-bottom: 16px;
+    }
+
+    .datos strong {
+      margin-right: 6px;
+    }
+
+    .bio p {
+      margin-bottom: 12px;
+      max-width: 70ch;
+    }
+
+    .grupo {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .grupo>strong {
+      margin-right: 4px;
+    }
+
+    .etiqueta {
+      background: var(--tarjeta);
+      border: 1px solid #c4c2be;
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 14px;
+    }
+
+
+    .linea {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 48px;
+      row-gap: 28px;
+      align-items: start;
+    }
+
+    .linea::before {
+
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      margin-left: -1.5px;
+      background: var(--acento);
+    }
+
+    .tarjeta {
+      position: relative;
+      background: var(--tarjeta);
+      border: 1px solid #c4c2be;
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+
+    .tarjeta::after {
+
+      content: "";
+      position: absolute;
+      top: 28px;
+      width: 24px;
+      height: 3px;
+      background: var(--acento);
+    }
+
+    .tarjeta:nth-child(odd) {
+      grid-column: 1;
+    }
+
+    .tarjeta:nth-child(odd)::after {
+      right: -24px;
+    }
+
+    .tarjeta:nth-child(even) {
+      grid-column: 2;
+      margin-top: 56px;
+    }
+
+    .tarjeta:nth-child(even)::after {
+      left: -24px;
+    }
+
+    .tarjeta h3 {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .tarjeta .tipo {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .puesto {
+      border-left: 3px solid var(--acento);
+      padding-left: 8px;
+      margin-top: 8px;
+    }
+
+    .puesto b {
+      display: block;
+      font-size: 13px;
+    }
+
+    .puesto small {
+      font-size: 11px;
+      color: #5d5b57;
+    }
+
+    .redes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .redes a {
+      color: var(--texto);
+      text-decoration: none;
+      background: var(--tarjeta);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .redes a:hover {
+      background: var(--acento);
+      color: #fff;
+    }
+
+    .btn-pdf {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      background: var(--acento);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font: 700 14px var(--fuente);
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      .cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .linea {
+        grid-template-columns: 1fr;
+        padding-left: 28px;
+      }
+
+      .linea::before {
+        left: 8px;
+        margin-left: 0;
+      }
+
+      .tarjeta:nth-child(odd),
+      .tarjeta:nth-child(even) {
+        grid-column: 1;
+        margin-top: 0;
+      }
+
+      .tarjeta:nth-child(odd)::after,
+      .tarjeta:nth-child(even)::after {
+        left: -20px;
+        right: auto;
+        width: 20px;
+      }
+    }
+
+    @media print {
+      .btn-pdf {
+        display: none;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      section,
+      .tarjeta {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="pagina">
+
+    <header class="cabecera">
+
+      <div class="foto" id="foto">
+        <img src="./GSSP.jpg" alt="Guillermo Simones">
+      </div>
+      <div>
+        <span class="chip-nombre" id="nombre">Guillermo Simones</span>
+        <h1 id="apodo">Soy Guillermo</h1>
+        <h2 id="rol">Desarrollador Full Stack en formación</h2>
+        <p id="web"></p>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="titulo"><strong>Sobre mí</strong></h2>
+      <p class="datos"><strong>Ciudad de residencia</strong><span id="ciudad"></span></p>
+      <p class="Telefono"><strong>Teléfono</strong><span id="telefono"></span></p><br>
+
+      <div class="bio" id="bio"></div>
+      <div class="grupo" id="skills"></div>
+      <div class="grupo" id="idiomas"></div>
+      <p class="cierre">&lt;/sobre mí&gt;</p>
+    </section>
+
+    <section>
+      <h2 class="titulo"><strong>Experiencia</strong></h2>
+      <div class="linea" id="experiencia"></div>
+      <p class="cierre">&lt;/experiencia&gt;</p>
+    </section>
+
+    <section>
+      <h2 class="titulo"><strong>Contacto</strong></h2>
+      <p id="contacto-texto"></p>
+      <div class="redes" id="redes"></div>
+      <p class="cierre">&lt;/contacto&gt;</p>
+    </section>
+
+  </main>
+  <button class="btn-pdf" onclick="window.print()">Guardar como PDF</button>
+
+  <script>
+
+    const cv = {
+      nombre: "Guillermo Simones",
+      apodo: "Soy Guillermo",
+      rol: "Desarrollador Full Stack en formación",
+      web: "Webs GSSP Design - Desarrollo Web y Automatización con IA",
+      ciudad: "Montevideo, Uruguay",
+      telefono: " +598 98 791 213",
+      bio: [
+        "Soy Guillermo Simones, profesional con experiencia en logística, atención al cliente y dirección de equipos, actualmente en formación en desarrollo web.",
+        "Me apasiona la tecnología y he complementado mi trayectoria con cursos certificados en HTML y desarrollo web (EducaciónIT, Coursera/Inefop).",
+        "Combino habilidades técnicas (HTML, CSS, JavaScript, Python, SQL) con experiencia práctica en organización, ventas y gestión de depósitos, buscando aportar soluciones digitales que optimicen procesos y mejoren la experiencia de los negocios.",
+        "Automatización de procesos con n8n e integración de modelos de IA locales y en la nube, aplicando Inteligencia Artificial para optimizar tareas, generar contenido y apoyar la gestión de proyectos.",
+        "Apoyo en proyectos digitales mediante IA: generación de contenido, automatización y asistencia en desarrollo web."
+      ],
+
+      skills: [
+
+        "HTML5", "CSS3", "JavaScript", "React", "Bootstrap", "TailwindCSS",
+
+
+        "Next.js", "APIs REST", "MySQL", "Firebase", "Automatización con n8n",
+
+
+        "Automatización de procesos con IA",
+        "Integración de modelos locales y en la nube",
+        "Generación de contenido asistida por IA",
+
+
+        "LM Studio", "Antigravity", "VS Code", "Claude Code", "Obsidian",
+
+
+        "Git & GitHub", "Hostinger", "Optimización y caché",
+
+
+        "Python", "SQL", "NoSQL", "Gestión de depósitos", "Atención al cliente", "Ventas"
+      ],
+
+      idiomas: ["Español (nativo)", "Inglés (intermedio)"],
+      experiencia: [
+        {
+          lugar: "Casino Importaciones SA", tipo: "Logística / Depósito", puestos: [
+            { nombre: "Recepción y control de stock", fecha: "Nov 2025 - Actualidad" }
+          ]
+        },
+        {
+          lugar: "Delfiner S.A (HLC)", tipo: "Encargado de Logística", puestos: [
+            { nombre: "Supervisión de personal y proveedores", fecha: "May 2025 - Jul 2025" }
+          ]
+        },
+        {
+          lugar: "Representaciones Medixlab 11091, C.A.", tipo: "Director", puestos: [
+            { nombre: "Administración y coordinación de pagos", fecha: "Sep 2020 - Dic 2024" }
+          ]
+        },
+        {
+          lugar: "Formación", tipo: "Cursos y Certificaciones", puestos: [
+            { nombre: "Desarrollo Web con HTML – EducaciónIT (18h)", fecha: "Sep 2025" },
+            { nombre: "Introduction to HTML – Coursera/Inefop", fecha: "Oct 2026" }
+          ]
+        },
+        {
+          lugar: "Mis proyectos", tipo: "Proyectos propios", puestos: [
+            { nombre: "Automatizaciones con n8n", fecha: "2026 - Actualidad" },
+            { nombre: "Apps y páginas web", fecha: "2026 - Actualidad" }]
+        },
+      ],
+      contactoTexto: "Mi bandeja de entrada está abierta para consultas y proyectos.",
+      redes: [
+        { texto: "websgsspdesign@gmail.com", url: "mailto:websgsspdesign@gmail.com" },
+        { texto: "GitHub", url: "https://github.com/WebsGssPDesign" },
+        { texto: "Instagram", url: "https://www.instagram.com/websgsspdesign/" }
+      ]
+    };
+
+    /* ===== funciones ===== */
+    const $ = id => document.getElementById(id);
+    const crear = (tag, clase, texto) => {
+      const el = document.createElement(tag);
+      if (clase) el.className = clase;
+      if (texto) el.textContent = texto;
+      return el;
+    };
+
+    $("nombre").textContent = cv.nombre;
+    $("apodo").textContent = cv.apodo;
+    $("rol").textContent = cv.rol;
+    $("web").textContent = cv.web;
+    $("ciudad").textContent = cv.ciudad;
+    $("telefono").textContent = cv.telefono;
+    $("contacto-texto").textContent = cv.contactoTexto;
+    document.title = cv.nombre + " | CV";
+
+    cv.bio.forEach(t => $("bio").appendChild(crear("p", "", t)));
+
+    function grupo(contenedor, titulo, items) {
+      contenedor.appendChild(crear("strong", "", titulo));
+      items.forEach(i => contenedor.appendChild(crear("span", "etiqueta", i)));
+    }
+    grupo($("skills"), "Skills", cv.skills);
+    grupo($("idiomas"), "Idiomas", cv.idiomas);
+
+    cv.experiencia.forEach(e => {
+      const card = crear("article", "tarjeta");
+      card.appendChild(crear("h3", "", e.lugar));
+      card.appendChild(crear("div", "tipo", e.tipo));
+      e.puestos.forEach(p => {
+        const bloque = crear("div", "puesto");
+        bloque.appendChild(crear("b", "", p.nombre));
+        bloque.appendChild(crear("small", "", p.fecha));
+        card.appendChild(bloque);
+      });
+      $("experiencia").appendChild(card);
+    });
+
+    cv.redes.forEach(r => {
+      const a = crear("a", "", r.texto);
+      a.href = r.url;
+      $("redes").appendChild(a);
+    });
+  </script>
+</body>
+
+</html>
